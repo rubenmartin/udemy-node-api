@@ -3,8 +3,7 @@ npm install --save mongoose
 npm install --save body-parser
 npm install --save bcryptjs
 npm install --save jsonwebtoken
-
-npm install --save bluebird
+npm install --save bson-objectid 
 
 -- Create a new db in mongolab with new user .
 URL :  mongodb://<dbuser>:<dbpassword>@ds063536.mlab.com:63536/workout
@@ -38,11 +37,8 @@ user:
 
 result could be a "sessionToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYnNvbnR5cGUiOiJPYmplY3RJRCIsImlkIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjpbODgsMTExLDE5MSw4NCwxMDAsMTc1LDk4LDEzMiwxNDQsNCwyOCwyMDVdfSwiaWF0IjoxNDgzNzE4NDg0LCJleHAiOjE0ODM4MDQ4ODR9.DQpx-VShWkm5miD7dkgGNnjCgHeIubrJp2rnEJiInEI"
 
-2. prepare the request take the sessionToken and add as a header and add the id , changing the decodedid to req.headers.id to allocate the user and store the info for definitions.
-Headers for the request
+2. GET api/definitions : prepare the request take the sessionToken. Headers for the request
 
 authentication : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYnNvbnR5cGUiOiJPYmplY3RJRCIsImlkIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjpbODgsMTExLDE5MSw4NCwxMDAsMTc1LDk4LDEzMiwxNDQsNCwyOCwyMDVdfSwiaWF0IjoxNDgzNzE4NDg0LCJleHAiOjE0ODM4MDQ4ODR9.DQpx-VShWkm5miD7dkgGNnjCgHeIubrJp2rnEJiInEI
-id : 586fbf5464af628490041ccd
 
-By this it works
 

@@ -2,14 +2,18 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var constants = require('../config/constants');
 
+var ObjectID = require("bson-objectid");
+
 module.exports = (req, res, next) => {
     var sessionToken = req.headers.authorization;
-    var id = req.headers.id;
+    //var id = req.headers.id;
+
     if (!req.body.user && sessionToken) {
         jwt.verify(sessionToken, constants.JWT_SECRET,
             (err, decodedId) => {
+                // get the decoded payload and header
                 if (decodedId) {
-                    User.findOne({ _id: id }).then((user) => {
+                     User.findOne({ _id: ObjectID(decodedId.id.data) }).then((user) => {
                         req['user'] = user;
                         next();
                     }, (err) => {
